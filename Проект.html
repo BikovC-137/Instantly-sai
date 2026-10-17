@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Программа Сисадмина — Скачать и FAQ</title>
+    <style>
+        /* Базовые стили и сброс настроек */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: #f8fafc;
+            color: #1e293b;
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+            width: 100%;
+        }
+
+        /* 1. ШАПКА И НАВИГАЦИЯ */
+        .header {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #2563eb;
+            letter-spacing: -0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #475569;
+            font-weight: 500;
+            font-size: 1rem;
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: #2563eb;
+        }
+
+        /* Общие стили для секций */
+        section {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 15px;
+            color: #0f172a;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #64748b;
+            margin-bottom: 50px;
+            font-size: 1.1rem;
+        }
+
+        /* 2. БЛОК: ГЛАВНАЯ */
+        .hero {
+            background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+            padding: 140px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: #1e3a8a;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: #475569;
+            max-width: 600px;
+            margin: 0 auto 40px auto;
+        }
+
+        /* Кнопки */
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            cursor: pointer;
+            border: none;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background-color: #2563eb;
+            color: #ffffff;
+            box-shadow: 0 4px 14px rgba(37, 99, 235, 0.3);
+        }
+
+        .btn-primary:hover {
+            background-color: #1d4ed8;
+            transform: translateY(-2px);
+        }
+
+        /* 3. БЛОК: СКАЧАТЬ */
+        .download {
+            background-color: #ffffff;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        .download-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .download-box {
+            background: #0f172a;
+            color: #ffffff;
+            padding: 40px 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 25px;
+            text-align: center;
+        }
+
+        .download-box h2 {
+            color: #ffffff;
+            font-size: 1.6rem;
+        }
+
+        .btn-light {
+            background-color: #ffffff;
+            color: #0f172a;
+            width: 100%;
+        }
+
+        .btn-light:hover {
+            background-color: #f1f5f9;
+            transform: translateY(-2px);
+        }
+
+        /* 4. БЛОК: КЛАССИЧЕСКИЙ FAQ АККОРДЕОН */
+        .knowledge-base {
+            background-color: #f1f5f9;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        .faq-wrapper {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            transition: border-color 0.2s ease;
+        }
+
+        .faq-item:hover {
+            border-color: #2563eb;
+        }
+
+        /* Интерактивная кнопка-вопрос */
+        .faq-question {
+            padding: 20px 25px;
+            background: #ffffff;
+            font-weight: 600;
+            font-size: 1.1rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+            color: #1e293b;
+            transition: background-color 0.2s ease;
+        }
+
+        .faq-question:hover {
+            background-color: #f8fafc;
+        }
+
+        /* Индикатор + / - */
+        .faq-icon {
+            font-size: 1.3rem;
+            color: #2563eb;
+            font-weight: bold;
+            transition: transform 0.25s ease;
+        }
+
+        /* Блок ответа (Плавное разворачивание по высоте) */
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            color: #475569;
+            font-size: 1rem;
+            background-color: #f8fafc;
+        }
+
+        .faq-answer-content {
+            padding: 20px 25px;
+            border-top: 1px solid #f1f5f9;
+        }
+
+        /* Стили активного (открытого) аккордеона */
+        .faq-item.active {
+            border-color: #2563eb;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 300px; /* С запасом для текста */
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(45deg); /* Поворачивает плюсик, превращая в крестик/минус */
+            color: #ef4444;
+        }
+
+        /* ПОДВАЛ (FOOTER) */
+        .footer {
+            background-color: #0f172a;
+            color: #64748b;
+            padding: 30px 0;
+            text-align: center;
+            font-size: 0.9rem;
+            border-top: 1px solid #1e293b;
+            margin-top: auto;
+        }
+
+        /* АДАПТИВНОСТЬ */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .navbar { flex-direction: column; height: auto; padding: 15px 0; gap: 15px; }
+            .nav-links { gap: 20px; }
+            section { padding: 60px 0; }
+            .download-grid { grid-template-columns: 1fr; }
+            .faq-question { padding: 15px 20px; font-size: 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Шапка с навигацией -->
+    <header class="header">
+        <div class="container navbar">
+            <div class="logo">SysAdmin.tools</div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#home">Главная</a></li>
+                    <li><a href="#download">Скачать</a></li>
+                    <li><a href="#kb">База знаний</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Блок: Главная -->
+    <section id="home" class="hero">
+        <div class="container">
+            <h1>Программа Сисадмина</h1>
+            <p>Универсальный инструмент для мониторинга сети, автоматизации рутинных задач и быстрого устранения неполадок в корпоративной ИТ-инфраструктуре.</p>
+            <a href="#download" class="btn btn-primary">Перейти к скачиванию</a>
+        </div>
+    </section>
+
+    <!-- Блок: Скачать -->
+    <section id="download" class="download">
+        <div class="container">
+            <h2 class="section-title">Доступно для всех платформ</h2>
+            
+            <div class="download-grid">
+                <div class="download-box">
+                    <h2>Версия для Windows</h2>
+                    <a href="#" class="btn btn-light" onclick="startDownload('Windows')">Скачать для Windows</a>
+                </div>
+                <div class="download-box">
+                    <h2>Версия для Linux</h2>
+                    <a href="#" class="btn btn-light" onclick="startDownload('Linux')">Скачать для Linux</a>
+                </div>
+                <div class="download-box">
+                    <h2>Версия для macOS</h2>
+                    <a href="#" class="btn btn-light" onclick="startDownload('macOS')">Скачать для macOS</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Блок: База знаний (Классический FAQ) -->
+    <section id="kb" class="knowledge-base">
+        <div class="container">
+            <h2 class="section-title">База знаний</h2>
+            <p class="section-subtitle">Кликните на интересующий вопрос, чтобы мгновенно развернуть подробный ответ</p>
+            
+            <div class="faq-wrapper">
+                
+                <!-- Вопрос 1 -->
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>Где хранятся конфигурационные файлы программы?</span>
+                        <div class="faq-icon">+</div>
+                    </div>
+                    <div class="faq-answer">
