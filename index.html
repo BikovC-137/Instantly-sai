@@ -316,11 +316,11 @@
             <div class="download-grid">
                 <div class="download-box">
                     <h2>Версия для Windows</h2>
-                    <a href="#" class="btn btn-light" onclick="startDownload('Windows')">Скачать для Windows</a>
+                    <a href="https://github.com/GIT01-byte/Instally/releases/latest/download/Instally.exe" class="btn btn-light" download>Скачать для Windows</a>
                 </div>
                 <div class="download-box">
                     <h2>Версия для Linux</h2>
-                    <a href="#" class="btn btn-light" onclick="startDownload('Linux')">Скачать для Linux</a>
+                    <a href="https://github.com/GIT01-byte/Instally/releases/latest/download/Instally-x86_64" class="btn btn-light" download>Скачать для Linux</a>
                 </div>
                 <div class="download-box">
                     <h2>Версия для macOS</h2>
@@ -345,3 +345,95 @@
                         <div class="faq-icon">+</div>
                     </div>
                     <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Конфигурационные файлы хранятся в директории пользователя. 
+                            В Windows: <code>%APPDATA%\SysAdminTools\config.json</code>. 
+                            В Linux и macOS: <code>~/.config/sysadmintools/config.json</code>.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Вопрос 2 -->
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>Как обновить программу до последней версии?</span>
+                        <div class="faq-icon">+</div>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Программа проверяет обновления автоматически при запуске. 
+                            Также можно скачать новую версию со страницы загрузки и установить её поверх текущей — 
+                            все настройки и база данных сохранятся.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Вопрос 3 -->
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>Поддерживается ли работа через прокси-сервер?</span>
+                        <div class="faq-icon">+</div>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Да. В разделе «Настройки → Сеть» можно указать адрес прокси-сервера, порт, 
+                            а также логин и пароль для аутентификации. Поддерживаются протоколы HTTP и SOCKS5.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Вопрос 4 -->
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>Какие права нужны для запуска программы?</span>
+                        <div class="faq-icon">+</div>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Для базового мониторинга достаточно прав обычного пользователя. 
+                            Для сканирования портов, работы с сетевыми интерфейсами и системными службами 
+                            требуются права администратора (root).
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Вопрос 5 -->
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>Как экспортировать отчёт о работе?</span>
+                        <div class="faq-icon">+</div>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            В меню «Отчёты» выберите нужный период и нажмите «Экспорт». 
+                            Доступны форматы PDF, CSV и JSON. Отчёт сохраняется в папку «Документы» 
+                            или в указанную вами директорию.
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Подвал -->
+    <footer class="footer">
+        <div class="container">
+            &copy; 2025 SysAdmin.tools — Все права защищены.
+        </div>
+    </footer>
+
+    <script>
+        // Переключение FAQ-аккордеона
+        function toggleFaq(element) {
+            const item = element.parentElement;
+            item.classList.toggle('active');
+        }
+
+        // Заглушка для macOS (если ссылка ещё не готова)
+        function startDownload(platform) {
+            alert('Ссылка для ' + platform + ' скоро появится.');
+        }
+    </script>
+</body>
+</html>
